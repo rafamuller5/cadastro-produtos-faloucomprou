@@ -13,6 +13,8 @@ Route::post('/produtos/salvar', [ProductController::class, 'store'])->name('prod
 Route::get('produtos/{nome}/editar', [ProductController::class, 'edit'])->name('produtos.edit');
 Route::put('produtos/{nome}', [ProductController::class, 'update'])->name('produtos.update');
 Route::delete('produtos/{nomeProduto}', [ProductController::class, 'destroy'])->name('produtos.destroy');
+Route::post('/produtos/importar', [ProductController::class, 'importar'])->name('produtos.importar');
+
 
 
 

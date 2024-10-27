@@ -1,3 +1,4 @@
+/* Estilos Gerais */
 body {
     background: linear-gradient(to bottom, #B5F199, #89B774);
     font-family: 'Arial', sans-serif;
@@ -41,6 +42,7 @@ h1 {
     background-color: #21618C;
 }
 
+/* Estilos da Listagem de Produtos */
 .product-list {
     display: flex;
     flex-wrap: wrap;
@@ -93,6 +95,87 @@ h1 {
 
 .btn-danger:hover {
     background-color: #C0392B; /* Vermelho mais escuro */
+}
+
+/* Estilos do Formulário */
+.form-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 40px); /* Ajuste para caber no layout */
+}
+
+.form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    color: #1B2A63;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="url"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="url"]:focus {
+    border-color: #4DB6AC;
+    outline: none;
+}
+
+.btn-submit {
+    background: linear-gradient(to right, #223483, #2980B9); /* Degradê azul */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: linear-gradient(to right, #1B2A63, #21618C); /* Azul mais escuro */
+}
+
+.btn-back {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #2980B9;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.btn-back:hover {
+    color: #1B2A63; /* Azul mais escuro */
 }
 
 /* Responsividade */
