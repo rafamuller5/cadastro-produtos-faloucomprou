@@ -10,20 +10,12 @@
     <div class="container">
         <div class="header">
             <h1>Lista de Produtos</h1>
-            <a href="{{ route('produtos.create') }}" class="btn btn-primary">Adicionar Novo Produto</a>
+            <div class="button-group"> <!-- Novo contêiner para os botões -->
+                <a href="{{ route('produtos.create') }}" class="btn btn-primary">Cadastrar Produto</a>
+                <a href="{{ route('produtos.importar') }}" class="btn btn-secondary">Importar Produtos</a>
+            </div>
         </div>
 
-        <!-- Botão de upload de CSV -->
-        <form action="{{ route('produtos.importar') }}" method="POST" enctype="multipart/form-data" style="margin-bottom: 20px;">
-            @csrf
-            <div class="form-group">
-                <label for="csv_file">Importar Produtos via CSV:</label>
-                <input type="file" name="csv_file" id="csv_file" accept=".csv" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Importar CSV</button>
-        </form>
-
-        <!-- Filtro de Produtos -->
         <form action="{{ route('produtos.index') }}" method="GET" class="filter-form">
             <input type="text" name="search" placeholder="Pesquisar por nome ou código de barras" value="{{ request('search') }}">
             <select name="price_filter">
@@ -34,7 +26,6 @@
             <button type="submit" class="btn">Filtrar</button>
         </form>
 
-        <!-- Lista de Produtos -->
         <div class="product-list">
             @if ($produtos && count($produtos) > 0)
                 @foreach ($produtos as $idProduto => $produto)
