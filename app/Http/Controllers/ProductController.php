@@ -54,29 +54,30 @@ class ProductController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $request->validate([
-            'codigoBarras' => 'required',
-            'imagemUrl' => 'required|url',
-            'nome' => 'required|string',
-            'preco' => 'required|numeric',
-        ]);
+{
+    $request->validate([
+        'codigoBarras' => 'required',
+        'imagemUrl' => 'required|url',
+        'nome' => 'required|string',
+        'preco' => 'required|numeric',
+    ]);
 
-        $produtos = $this->database->getReference('produtos')->getValue();
-        $nextId = $produtos ? count($produtos) + 1 : 1;
+    $produtos = $this->database->getReference('produtos')->getValue();
+    $nextId = $produtos ? count($produtos) + 1 : 1;
 
-        $produtoData = [
-            'id' => (string) $nextId,
-            'nome' => $request->nome,
-            'preco' => $request->preco,
-            'imagemUrl' => $request->imagemUrl,
-            'codigoBarras' => $request->codigoBarras,
-        ];
+    $produtoData = [
+        'id' => (string) $nextId,
+        'nome' => $request->nome,
+        'preco' => (float) $request->preco, // Convertendo para float
+        'imagemUrl' => $request->imagemUrl,
+        'codigoBarras' => $request->codigoBarras,
+    ];
 
-        $this->database->getReference('produtos/' . $nextId)->set($produtoData);
+    $this->database->getReference('produtos/' . $nextId)->set($produtoData);
 
-        return redirect()->route('produtos.index')->with('success', 'Produto adicionado com sucesso!');
-    }
+    return redirect()->route('produtos.index')->with('success', 'Produto adicionado com sucesso!');
+}
+
 
     public function edit($id)
     {
@@ -138,7 +139,7 @@ class ProductController extends Controller
                 'codigoBarras' => $data['codigoBarras'],
                 'imagemUrl' => $data['imagemUrl'],
                 'nome' => $data['nome'], 
-                'preco' => $data['preco'],
+                'preco' => (float) $data['preco'], // Convertendo para float
             ];
 
 
