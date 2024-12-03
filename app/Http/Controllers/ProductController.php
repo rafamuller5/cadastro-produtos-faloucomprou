@@ -14,7 +14,7 @@ class ProductController extends Controller
     {
         $firebase = (new Factory)
             ->withServiceAccount(storage_path('app/faloucomproucerto-firebase.json'))
-            ->withDatabaseUri('https://faloucomproucerto-default-rtdb.firebaseio.com/');
+            ->withDatabaseUri('https://faloucomprou-default-rtdb.firebaseio.com/');
 
         $this->database = $firebase->createDatabase();
     }
